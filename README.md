@@ -14,7 +14,11 @@ This is a fork of [waystonewarps-squaremap](https://github.com/James-P-Bennett/w
 - ✅ **Converted from Kotlin to Java**
 - ✅ Optimized performance and code quality
 
-![Screenshot](https://raw.githubusercontent.com/James-P-Bennett/waystonewarps-squaremap/refs/heads/main/images/screenshot.png)
+## ⚠️ Disclaimer
+
+**Use at your own risk!** This plugin was adapted for private use on SlimeNest.de. While functional, it may not be compatible with all server setups.
+
+![Screenshot](https://raw.githubusercontent.com/SlimeNest-de/waystonewarps-pl3xmap/refs/heads/main/images/screenshot.png)
 
 ## 📋 Requirements
 
