@@ -1,22 +1,22 @@
-name: WaystoneWarps-Squaremap
+name: WaystoneWarps-Pl3xMap
 version: 1.0.0
-main: org.jamesphbennett.waystonewarps.squaremap.WaystoneSquaremapAddon
+main: org.jamesphbennett.waystonewarps.pl3xmap.WaystonePl3xmapAddon
 api-version: '1.21'
 author: Hazmad_
-description: Squaremap integration for WaystoneWarps - Display waystones as toggleable markers on your map
+description: Pl3xMap integration for WaystoneWarps - Display waystones as toggleable markers on your map
 
 depend:
   - WaystoneWarps
-  - squaremap
+  - Pl3xMap
 
 commands:
   waystones-reload-map:
     description: Manually refresh waystone markers on the map
     usage: /waystones-reload-map
-    permission: waystonewarps.squaremap.reload
+    permission: waystonewarps.pl3xmap.reload
     permission-message: You don't have permission to use this command.
 
 permissions:
-  waystonewarps.squaremap.reload:
+  waystonewarps.pl3xmap.reload:
     description: Allows reloading waystone markers on the map
     default: op
