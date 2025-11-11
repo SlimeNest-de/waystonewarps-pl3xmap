@@ -75,7 +75,7 @@ Licensed under the same terms as WaystoneWarps.
 
 - **Original Plugin**: [James-P-Bennett/waystonewarps-squaremap](https://github.com/James-P-Bennett/waystonewarps-squaremap)
 - **WaystoneWarps**: [Mizarc/waystone-warps](https://github.com/Mizarc/waystone-warps)
-- **Pl3xMap**: [BillyGalbreath/Pl3xMap](https://github.com/BillyGalbreath/Pl3xMap)
+- **Pl3xMap**: [granny/Pl3xMap](https://github.com/granny/Pl3xMap)
 - **Adapted for**: [SlimeNest.de](https://slimenest.de) Server
 
 ---
