@@ -101,6 +101,9 @@ public class Pl3xmapLayerManager {
             return;
         }
 
+        // Re-register icons in case Pl3xMap was reloaded
+        markerFactory.registerIcons();
+
         // Get Bukkit world
         org.bukkit.World bukkitWorld = Bukkit.getWorld(world.getName());
         if (bukkitWorld == null) {
@@ -136,12 +139,36 @@ public class Pl3xmapLayerManager {
 
     /**
      * Refresh markers for all worlds.
-     * This is called when the browser loads the map.
+     * This is called when the browser loads the map or manually via command.
+     * Re-registers layers if they were removed by /map reload.
      */
     public void refreshAllMarkers() {
-        for (World world : layers.keySet()) {
-            refreshMarkers(world);
+        // Clear old layer references
+        layers.clear();
+        
+        // Get current worlds from Pl3xMap
+        Collection<World> currentWorlds = Pl3xMap.api().getWorldRegistry().values();
+        
+        plugin.getLogger().info("Refreshing markers for " + currentWorlds.size() + " world(s)");
+        
+        // Re-register icons in case Pl3xMap was reloaded
+        markerFactory.registerIcons();
+        
+        // Register layers for all worlds
+        for (World world : currentWorlds) {
+            // Check if layer already exists in this world
+            if (!world.getLayerRegistry().has(LAYER_KEY)) {
+                plugin.getLogger().info("Registering new layer for world: " + world.getName());
+                registerLayer(world);
+            } else {
+                plugin.getLogger().info("Layer already exists for world: " + world.getName() + ", refreshing markers");
+                // Store the existing layer reference
+                SimpleLayer layer = (SimpleLayer) world.getLayerRegistry().get(LAYER_KEY);
+                layers.put(world, layer);
+                refreshMarkers(world);
+            }
         }
+        
         plugin.getLogger().info("Refreshed waystone markers for all worlds");
     }
 

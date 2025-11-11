@@ -1,5 +1,5 @@
 name: WaystoneWarps-Pl3xMap
-version: 1.0.0
+version: ${project.version}
 main: org.jamesphbennett.waystonewarps.pl3xmap.WaystonePl3xmapAddon
 api-version: '1.21'
 author: Hazmad_

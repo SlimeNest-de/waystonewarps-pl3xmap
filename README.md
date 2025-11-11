@@ -56,20 +56,75 @@ auto-refresh:
 
 ## 🔧 Development
 
-### Build Instructions
+### Prerequisites
 
-Prerequisites:
-- Java 21+
-- Maven 3.9+
-- WaystoneWarps JAR in `libs/` folder
+- **Java Development Kit (JDK)**: 21 or higher
+- **Maven**: 3.9.0 or higher
+- **Waystone Warps Plugin**: Download from [Modrinth](https://modrinth.com/plugin/waystone-warps) or [GitHub](https://github.com/Mizarc/waystone-warps)
+
+### Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/SlimeNest-de/waystonewarps-pl3xmap.git
+   cd waystonewarps-pl3xmap
+   ```
+
+2. **Download Waystone Warps JAR**
+   - Download `WaystoneWarps-0.3.5.jar` (or newer)
+   - Place it in the `libs/` folder in the project root
+
+3. **Install Waystone Warps to local Maven repository**
+   ```bash
+   mvn install:install-file "-Dfile=libs/WaystoneWarps-0.3.5.jar" "-DgroupId=dev.mizarc" "-DartifactId=waystonewarps" "-Dversion=0.3.5" "-Dpackaging=jar"
+   ```
+   
+   > **Note:** This step is required only once. It installs the Waystone Warps JAR into your local Maven repository (`~/.m2/repository/`).
+
+### Building
 
 ```bash
-# Compile the project
+# Clean and compile the project
 mvn clean package
 
-# Output JAR
-target/waystonewarps-pl3xmap-1.0.0.jar
+# The output JAR will be located at:
+# target/waystonewarps-pl3xmap-<version>.jar
 ```
+
+### Project Structure
+
+```
+waystonewarps-pl3xmap/
+├── src/main/
+│   ├── java/                        # Java source files
+│   └── resources/
+│       ├── config.yml               # Default configuration
+│       ├── plugin.yml               # Plugin metadata
+│       ├── waystone_icon.png        # Public waystone icon
+│       └── waystone_locked_icon.png # Private waystone icon
+├── libs/                            # Local JAR dependencies
+│   └── WaystoneWarps-0.3.5.jar     # Waystone Warps plugin
+├── pom.xml                          # Maven build configuration
+└── README.md
+```
+
+### Testing
+
+1. Build the plugin using the instructions above
+2. Copy the JAR from `target/` to your test server's `plugins/` folder
+3. Ensure WaystoneWarps and Pl3xMap are installed
+4. Restart the server and check the console for any errors
+
+### Troubleshooting
+
+**Problem:** `BUILD FAILURE` with "Could not resolve dependencies"
+- **Solution:** Make sure you've installed Waystone Warps to your local Maven repository (step 3 in Setup)
+
+**Problem:** Icons not appearing on the map
+- **Solution:** Execute `/map reload` followed by `/waystones-reload-map`
+
+**Problem:** Version mismatch warnings
+- **Solution:** Update the `<version>` in `pom.xml` and rebuild
 
 ## 📝 License
 

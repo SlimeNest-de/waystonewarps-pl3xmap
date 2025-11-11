@@ -6,7 +6,7 @@
 
     <groupId>dev.mizarc</groupId>
     <artifactId>waystonewarps-pl3xmap</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
 
     <name>WaystoneWarps-Pl3xMap</name>
@@ -46,13 +46,12 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- WaystoneWarps - Local JAR -->
+        <!-- WaystoneWarps -->
         <dependency>
             <groupId>dev.mizarc</groupId>
             <artifactId>waystonewarps</artifactId>
             <version>0.3.5</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/WaystoneWarps-0.3.5.jar</systemPath>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

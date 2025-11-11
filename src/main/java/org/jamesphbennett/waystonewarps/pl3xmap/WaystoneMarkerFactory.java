@@ -48,13 +48,21 @@ public class WaystoneMarkerFactory {
 
     /**
      * Helper method to register a single icon.
+     * Skips if already registered to avoid errors on reload.
      */
     private void registerIcon(String resourcePath, String iconKey, String description) {
-        try (InputStream stream = plugin.getResource(resourcePath)) {
+        try {
+            // Check if icon is already registered
+            if (Pl3xMap.api().getIconRegistry().has(iconKey)) {
+                return; // Already registered, skip
+            }
+            
+            InputStream stream = plugin.getResource(resourcePath);
             if (stream != null) {
                 BufferedImage image = ImageIO.read(stream);
                 Pl3xMap.api().getIconRegistry().register(new IconImage(iconKey, image, "png"));
                 plugin.getLogger().info("Registered " + description);
+                stream.close();
             } else {
                 plugin.getLogger().warning(resourcePath + " not found in resources");
             }

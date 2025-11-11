@@ -2,6 +2,7 @@ package org.jamesphbennett.waystonewarps.pl3xmap;
 
 import dev.mizarc.waystonewarps.WaystoneWarps;
 import dev.mizarc.waystonewarps.domain.warps.WarpRepository;
+import net.pl3x.map.core.Pl3xMap;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -83,6 +84,13 @@ public class WaystonePl3xmapAddon extends JavaPlugin {
         // Register reload command
         if (layerManager != null) {
             getCommand("waystones-reload-map").setExecutor(new ReloadCommand(this, layerManager));
+        }
+
+        // Register Pl3xMap reload listener
+        if (layerManager != null) {
+            Pl3xMapReloadListener reloadListener = new Pl3xMapReloadListener(this, layerManager);
+            Pl3xMap.api().getEventRegistry().register(reloadListener);
+            getLogger().info("Registered Pl3xMap reload listener");
         }
 
         getLogger().info("WaystoneWarps-Pl3xMap addon enabled!");
