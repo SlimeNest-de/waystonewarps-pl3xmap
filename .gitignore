@@ -1,0 +1,36 @@
+# Gradle
+.gradle/
+build/
+out/
+bin/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Dependency JARs
+libs/
+
+# Generated
+*.log
+*.jar
+!gradle-wrapper.jar
+
+#claude
+.claude/

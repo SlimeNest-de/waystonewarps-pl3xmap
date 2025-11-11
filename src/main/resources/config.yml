@@ -1,0 +1,24 @@
+# WaystoneWarps-Squaremap Configuration
+# https://github.com/Mizarc/waystone-warps
+# https://github.com/jpenilla/squaremap
+# Squaremap addon written by Hazmad_
+
+# Display settings
+display:
+  # Show locked/private waystones on the map
+  # Set false to hide locked waystones from the map
+  show-locked-waystones: true
+
+  # Icon size in pixels (default: 32, same as spawn marker)
+  icon-size: 32
+
+# Auto-refresh settings
+auto-refresh:
+  # Enable automatic marker refresh
+  # Set false to only refresh manually with /waystones-reload
+  enabled: true
+
+  # How often to check for changes (in seconds)
+  # Higher values = less frequent checks = better performance
+  # Set to 0 to disable periodic checks (manual reload only)
+  interval: 60

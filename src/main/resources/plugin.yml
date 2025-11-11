@@ -1,0 +1,22 @@
+name: WaystoneWarps-Squaremap
+version: 1.0.0
+main: org.jamesphbennett.waystonewarps.squaremap.WaystoneSquaremapAddon
+api-version: '1.21'
+author: Hazmad_
+description: Squaremap integration for WaystoneWarps - Display waystones as toggleable markers on your map
+
+depend:
+  - WaystoneWarps
+  - squaremap
+
+commands:
+  waystones-reload-map:
+    description: Manually refresh waystone markers on the map
+    usage: /waystones-reload-map
+    permission: waystonewarps.squaremap.reload
+    permission-message: You don't have permission to use this command.
+
+permissions:
+  waystonewarps.squaremap.reload:
+    description: Allows reloading waystone markers on the map
+    default: op
